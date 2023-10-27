@@ -6,9 +6,25 @@ import About from './pages/About';
 import Profile from './pages/Profile';
 import Header from './components/Header';
 
+import { Slide, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 export default function App() {
   return (
     <BrowserRouter>
+      <ToastContainer
+        transition={Slide}
+        position="top-center"
+        autoClose={4000}
+        hideProgressBar={true}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
