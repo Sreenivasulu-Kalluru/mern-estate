@@ -39,7 +39,7 @@ export default function Header() {
               <img
                 src={currentUser.avatar}
                 alt="profile"
-                className="object-cover rounded-full shadow-md h-7 w-7"
+                className="object-cover transition duration-200 ease-in-out rounded-full shadow-md h-7 w-7 hover:ring-1 ring-gray-400 ring-offset-1"
               />
             ) : (
               <li className="text-slate-700 hover:underline">Sign In</li>
