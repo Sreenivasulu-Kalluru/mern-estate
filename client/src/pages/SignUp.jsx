@@ -2,13 +2,14 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import OAuth from '../components/OAuth';
+import usePasswordToggle from '../../hooks/usePasswordToggle';
 
 export default function SignUp() {
   const [formData, setFormData] = useState({});
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-
   const navigate = useNavigate();
+  const [PassworInputType, ToggleIcon] = usePasswordToggle();
 
   const handleChange = (e) => {
     setFormData({
@@ -50,7 +51,7 @@ export default function SignUp() {
       <h1 className="text-3xl font-semibold text-center my-7">Sign Up</h1>
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col gap-4 p-4 rounded-md shadow-xl bg-slate-200"
+        className="relative flex flex-col gap-4 p-4 rounded-md shadow-xl bg-slate-200"
       >
         <input
           type="text"
@@ -66,13 +67,19 @@ export default function SignUp() {
           id="email"
           onChange={handleChange}
         />
-        <input
-          type="password"
-          placeholder="Password"
-          className="p-3 transition border rounded-lg focus:outline-none"
-          id="password"
-          onChange={handleChange}
-        />
+        <div className="relative">
+          <input
+            type={PassworInputType}
+            placeholder="Password"
+            className="w-full p-3 transition border rounded-lg focus:outline-none"
+            id="password"
+            onChange={handleChange}
+          />
+          <span className="absolute cursor-pointer right-4 bottom-[12px]">
+            {ToggleIcon}
+          </span>
+        </div>
+
         <button
           disabled={loading}
           className="p-3 text-white uppercase transition rounded-lg bg-slate-700 hover:bg-opacity-95 disabled:opacity-80"

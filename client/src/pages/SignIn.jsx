@@ -8,13 +8,14 @@ import {
   signInFailure,
 } from '../redux/user/userSlice';
 import OAuth from '../components/OAuth';
+import usePasswordToggle from '../../hooks/usePasswordToggle';
 
 export default function SignIn() {
   const [formData, setFormData] = useState({});
   const { loading, error } = useSelector((state) => state.user);
-
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [PassworInputType, ToggleIcon] = usePasswordToggle();
 
   const handleChange = (e) => {
     setFormData({
@@ -63,13 +64,18 @@ export default function SignIn() {
           id="email"
           onChange={handleChange}
         />
-        <input
-          type="password"
-          placeholder="Password"
-          className="p-3 transition border rounded-lg focus:outline-none"
-          id="password"
-          onChange={handleChange}
-        />
+        <div className="relative">
+          <input
+            type={PassworInputType}
+            placeholder="Password"
+            className="w-full p-3 transition border rounded-lg focus:outline-none"
+            id="password"
+            onChange={handleChange}
+          />
+          <span className="absolute cursor-pointer right-4 bottom-[12px]">
+            {ToggleIcon}
+          </span>
+        </div>
         <button
           disabled={loading}
           className="p-3 text-white uppercase transition rounded-lg bg-slate-700 hover:bg-opacity-95 disabled:opacity-80"
