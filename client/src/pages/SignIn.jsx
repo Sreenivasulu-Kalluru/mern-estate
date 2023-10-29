@@ -42,7 +42,7 @@ export default function SignIn() {
         return;
       }
       dispatch(signInSuccess(data));
-      toast.success('User Logged in Successfully!');
+      toast.success('User Logged In Successfully!');
       navigate('/');
     } catch (error) {
       dispatch(signInFailure(error.message));

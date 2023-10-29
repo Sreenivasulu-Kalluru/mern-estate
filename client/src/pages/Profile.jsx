@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AiFillDelete } from 'react-icons/ai';
+import { GoSignOut } from 'react-icons/go';
 import {
   getDownloadURL,
   getStorage,
@@ -15,6 +16,9 @@ import {
   deleteUserFailure,
   deleteUserStart,
   deleteUserSuccess,
+  signOutUserStart,
+  signOutUserSuccess,
+  signOutUserFailure,
 } from '../redux/user/userSlice';
 
 import { toast } from 'react-toastify';
@@ -84,7 +88,7 @@ export default function Profile() {
       }
 
       dispatch(updateUserSuccess(data));
-      toast.success('User Information Updated Successfully!');
+      toast.success('User Updated Successfully!');
     } catch (error) {
       dispatch(updateUserFailure(error.message));
       toast.error(error);
@@ -103,11 +107,28 @@ export default function Profile() {
         return;
       }
       dispatch(deleteUserSuccess(data));
-      toast.success('User has been Deleted Successfully!', {
+      toast.success(data, {
         icon: <AiFillDelete />,
       });
     } catch (error) {
       dispatch(deleteUserFailure(error.message));
+      toast.error(error);
+    }
+  };
+
+  const handleSignOut = async () => {
+    try {
+      dispatch(signOutUserStart());
+      const res = await fetch('/api/auth/signout');
+      const data = await res.json();
+      if (data.success === false) {
+        dispatch(signOutUserFailure(data.message));
+        return;
+      }
+      dispatch(signOutUserSuccess(data));
+      toast.success(data);
+    } catch (error) {
+      dispatch(signOutUserFailure(error.message));
       toast.error(error);
     }
   };
@@ -179,8 +200,14 @@ export default function Profile() {
         >
           Delete Account
         </span>
-        <span className="text-red-500 transition cursor-pointer hover:text-red-600">
-          Sign Out
+        <span
+          onClick={handleSignOut}
+          className="flex items-center gap-2 text-red-500 transition cursor-pointer hover:text-red-600"
+        >
+          Sign Out{' '}
+          <i>
+            <GoSignOut />
+          </i>
         </span>
       </div>
 
