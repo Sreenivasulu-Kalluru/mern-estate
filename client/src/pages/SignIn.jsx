@@ -72,7 +72,7 @@ export default function SignIn() {
             id="password"
             onChange={handleChange}
           />
-          <span className="absolute cursor-pointer right-4 bottom-[12px]">
+          <span className="absolute cursor-pointer right-4 bottom-[12px] hover:opacity-70 transition-all">
             {ToggleIcon}
           </span>
         </div>
