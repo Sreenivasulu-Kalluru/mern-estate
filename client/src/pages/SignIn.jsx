@@ -59,6 +59,7 @@ export default function SignIn() {
       >
         <input
           type="email"
+          required
           placeholder="Email"
           className="p-3 transition border rounded-lg focus:outline-none"
           id="email"
@@ -67,6 +68,7 @@ export default function SignIn() {
         <div className="relative">
           <input
             type={PassworInputType}
+            required
             placeholder="Password"
             className="w-full p-3 transition border rounded-lg focus:outline-none"
             id="password"
