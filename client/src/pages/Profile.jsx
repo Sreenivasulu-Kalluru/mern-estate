@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { AiFillDelete } from 'react-icons/ai';
 import { GoSignOut } from 'react-icons/go';
 import {
@@ -192,6 +193,12 @@ export default function Profile() {
         >
           {loading ? 'Updating Info...' : 'Update'}
         </button>
+        <Link
+          className="bg-green-700 text-white p-3 rounded-lg uppercase text-center hover:bg-opacity-95 transition-all"
+          to={'/create-listing'}
+        >
+          Create Listing
+        </Link>
       </form>
       <div className="flex justify-between mt-5">
         <span
