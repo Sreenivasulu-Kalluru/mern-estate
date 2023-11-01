@@ -270,9 +270,13 @@ export default function Profile() {
                 <p>{listing.name}</p>
               </Link>
 
-              <div className="flex flex-col items-center">
-                <button className="text-red-700 uppercase">Delete</button>
-                <button className="text-green-700 uppercase">Edit</button>
+              <div className="flex flex-col items-center gap-2">
+                <button className="text-red-600 uppercase transition hover:text-red-700">
+                  Delete
+                </button>
+                <button className="text-green-600 uppercase transition hover:text-green-700">
+                  Edit
+                </button>
               </div>
             </div>
           ))}
