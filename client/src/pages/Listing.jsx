@@ -15,6 +15,7 @@ import {
 } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import Contact from '../components/Contact';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 export default function Listing() {
   SwiperCore.use([Navigation]);
@@ -51,7 +52,7 @@ export default function Listing() {
 
   return (
     <main>
-      {loading && <p className="text-2xl text-center my-7">Loading...</p>}
+      {loading && <LoadingSpinner />}
       {error && (
         <p className="text-2xl text-center my-7">Something went wrong</p>
       )}
