@@ -17,7 +17,7 @@ export default function Search() {
   });
   const [loading, setLoading] = useState(false);
   const [listings, setListings] = useState([]);
-  console.log(listings);
+  const [showMore, setShowMore] = useState(false);
 
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
@@ -50,9 +50,13 @@ export default function Search() {
 
     const fetchListings = async () => {
       setLoading(true);
+      setShowMore(false);
       const searchQuery = urlParams.toString();
       const res = await fetch(`/api/listing/get?${searchQuery}`);
       const data = await res.json();
+      if (data.length > 8) {
+        setShowMore(true);
+      }
       setListings(data);
       setLoading(false);
     };
@@ -107,6 +111,21 @@ export default function Search() {
     urlParams.set('order', sidebardata.order);
     const searchQuery = urlParams.toString();
     navigate(`/search?${searchQuery}`);
+  };
+
+  const onShowMoreClick = async () => {
+    const numberOfListings = listings.length;
+    const startIndex = numberOfListings;
+    const urlParams = new URLSearchParams(location.search);
+    urlParams.set('startIndex', startIndex);
+    const searchQuery = urlParams.toString();
+    const res = await fetch(`/api/listing/get?${searchQuery}`);
+    const data = await res.json();
+    if (data.length < 9) {
+      setShowMore(false);
+    }
+
+    setListings([...listings, ...data]);
   };
 
   return (
@@ -224,10 +243,10 @@ export default function Search() {
         </h1>
         <div className="p-7 flex gap-4 flex-wrap">
           {!loading && listings.length === 0 && (
-            <p className="text-xl text-slate-700">No Listing Found!</p>
+            <p className="text-xl text-slate-700 self-center">
+              No Listing Found!
+            </p>
           )}
-
-          {loading && <LoadingSpinner className="content-center" />}
 
           {!loading &&
             listings &&
@@ -235,6 +254,19 @@ export default function Search() {
               <ListingItem key={listing._id} listing={listing} />
             ))}
         </div>
+
+        {showMore && (
+          <button
+            onClick={() => {
+              onShowMoreClick();
+            }}
+            className="text-green-700 hover:underline my-7 ml-7"
+          >
+            Show more
+          </button>
+        )}
+
+        {loading && <LoadingSpinner />}
       </div>
     </div>
   );
