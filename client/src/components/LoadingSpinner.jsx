@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Loader = () => {
+const LoadingSpinner = () => {
   return (
     <div role="status" className="flex mt-[250px] justify-center">
       <svg
@@ -24,4 +24,4 @@ const Loader = () => {
   );
 };
 
-export default Loader;
+export default LoadingSpinner;
