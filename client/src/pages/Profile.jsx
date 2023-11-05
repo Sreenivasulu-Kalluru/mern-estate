@@ -111,9 +111,7 @@ export default function Profile() {
         return;
       }
       dispatch(deleteUserSuccess(data));
-      toast.success(data, {
-        icon: <AiFillDelete />,
-      });
+      toast.success(data);
     } catch (error) {
       dispatch(deleteUserFailure(error.message));
       toast.error(error);
