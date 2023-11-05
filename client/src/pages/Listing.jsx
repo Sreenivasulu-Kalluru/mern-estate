@@ -65,9 +65,7 @@ export default function Listing() {
                 <div
                   className="sm:h-[500px] h-[300px]"
                   style={{
-                    background:
-                      `url(${url}) center no-repeat` ||
-                      'https://www.google.com/imgres?imgurl=https%3A%2F%2Fthumbor.forbes.com%2Fthumbor%2Ffit-in%2F900x510%2Fhttps%3A%2F%2Fwww.forbes.com%2Fhome-improvement%2Fwp-content%2Fuploads%2F2022%2F07%2Fdownload-23.jpg&tbnid=2ffaaFQOWzkNqM&vet=12ahUKEwjtlpPL9quCAxVXQWwGHeJGC2YQMygCegQIARBz..i&imgrefurl=https%3A%2F%2Fwww.forbes.com%2Fhome-improvement%2Fliving%2Ftypes-of-house-styles%2F&docid=U4B7rXV61_-LqM&w=900&h=506&q=house%20image&ved=2ahUKEwjtlpPL9quCAxVXQWwGHeJGC2YQMygCegQIARBz',
+                    background: `url(${url}) center no-repeat`,
                     backgroundSize: 'cover',
                   }}
                 ></div>
