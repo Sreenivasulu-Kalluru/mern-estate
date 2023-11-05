@@ -1,7 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { AiFillDelete } from 'react-icons/ai';
 import { GoSignOut } from 'react-icons/go';
 import {
   getDownloadURL,
@@ -165,9 +164,7 @@ export default function Profile() {
         return;
       }
 
-      toast.success(data, {
-        icon: <AiFillDelete />,
-      });
+      toast.success(data);
 
       setUserListings((prev) =>
         prev.filter((listing) => listing._id !== listingId)
