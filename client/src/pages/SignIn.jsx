@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
+
+import toast from 'react-hot-toast';
+
 import {
   signInStart,
   signInSuccess,
@@ -42,7 +45,7 @@ export default function SignIn() {
         return;
       }
       dispatch(signInSuccess(data));
-      toast.success('User Logged In Successfully!');
+      toast.success('User Logged In Successfully!', { duration: 4000 });
       navigate('/');
     } catch (error) {
       dispatch(signInFailure(error.message));

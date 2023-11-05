@@ -22,7 +22,9 @@ import {
   signOutUserFailure,
 } from '../redux/user/userSlice';
 
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
+
+import toast from 'react-hot-toast';
 
 export default function Profile() {
   const fileRef = useRef(null);

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
+import toast from 'react-hot-toast';
 import OAuth from '../components/OAuth';
 import usePasswordToggle from '../../hooks/usePasswordToggle';
 
