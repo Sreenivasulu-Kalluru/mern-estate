@@ -45,7 +45,7 @@ export default function SignIn() {
         return;
       }
       dispatch(signInSuccess(data));
-      toast.success('User Logged In Successfully!', { duration: 4000 });
+      toast.success('User Logged In Successfully!');
       navigate('/');
     } catch (error) {
       dispatch(signInFailure(error.message));
