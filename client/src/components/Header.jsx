@@ -35,12 +35,12 @@ export default function Header() {
         </Link>
         <form
           onSubmit={handleSubmit}
-          className="flex items-center p-3 ml-4 rounded-lg bg-slate-100 sm:ml-0"
+          className="flex items-center p-3 ml-[10px] rounded-lg bg-slate-100 sm:ml-0"
         >
           <input
             type="text"
             placeholder="Search..."
-            className="bg-transparent w-44 focus:outline-none sm:w-64"
+            className="w-40 bg-transparent focus:outline-none sm:w-64"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
