@@ -35,7 +35,7 @@ export default function Header() {
         </Link>
         <form
           onSubmit={handleSubmit}
-          className="flex items-center p-3 rounded-lg bg-slate-100"
+          className="flex items-center p-3 ml-4 rounded-lg bg-slate-100 sm:ml-0"
         >
           <input
             type="text"

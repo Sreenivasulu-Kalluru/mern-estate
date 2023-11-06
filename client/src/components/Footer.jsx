@@ -4,7 +4,7 @@ export function Footer() {
   const currYear = new Date().getFullYear();
 
   return (
-    <footer className="p-4 bg-slate-200">
+    <footer className="p-4 shadow-md bg-slate-200">
       <div className="flex flex-wrap justify-around gap-4 px-10">
         <Link to="/">
           <h2 className="flex flex-wrap text-sm font-bold sm:text-xl">
