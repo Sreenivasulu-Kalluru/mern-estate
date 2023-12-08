@@ -7,7 +7,6 @@ import Profile from './pages/Profile';
 import Header from './components/Header';
 
 // * react-toastify
-import { Slide, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 // * react-hot-toast
@@ -22,19 +21,6 @@ import Search from './pages/Search';
 export default function App() {
   return (
     <BrowserRouter>
-      {/* <ToastContainer
-        transition={Slide}
-        position="top-center"
-        autoClose={4000}
-        hideProgressBar={true}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="colored"
-      /> */}
       <Toaster position="top-center" />
       <Header />
       <Routes>
